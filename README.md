@@ -1,4 +1,4 @@
-# test-vuecli
+# vue-simple
 
 ## Project setup
 ```
