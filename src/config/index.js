@@ -1,3 +1,4 @@
-export default {
-  //
-}
+export const baseURL = process.env.NODE_ENV === 'production'
+  ? '/api/'
+  : ''
+
