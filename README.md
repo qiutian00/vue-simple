@@ -1,5 +1,7 @@
 # vue-simple
 
+use vuecli3 to create simple project
+
 ## Project setup
 ```
 npm install
