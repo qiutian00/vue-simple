@@ -21,7 +21,7 @@ use vuecli3 to create simple project
 │ | ├── util.js                                 # 与业务相关的工具方法
 │ ├── App.vue                                   # App 组件
 │ ├── main.js                                   # 渲染App 组件
-├── .editorconfig                               # 编辑器配置文件 need editorConfig file
+├── .editorconfig                               # 编辑器配置文件， need editorConfig plugin
 ├── .eslintrc.js                                # eslint config file
 ├── .browserslistrc                             # 浏览器兼容配置
 ├── babel.config.js                             # babel config file
