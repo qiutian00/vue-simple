@@ -13,9 +13,16 @@ const mutations = {
   }
 }
 const actions = {
-  //
+  updateUserName ({ commit, state, rootState, dispatch }) {
+    // rootState.appName
+    dispatch('updateUserAge', 'other actual param')
+  },
+  updateUserAge ({ commit, state, rootState, dispatch }, otherparam) {
+
+  }
 }
 
+// user 模块中可以再放模块
 export default {
   // namespaced: true,
   state,

@@ -10,6 +10,8 @@
     <button @click='handleChangeAppName'>修改appName</button>
     <p><span>{{ appVersion }}</span> <span>{{ userName }}</span></p>
     <button @click='handleChangeUserName'>修改userName</button>
+    <button @click='registerModule'>动态注册模块</button>
+    <p v-for="(li, index) in todoList" :key="index">{{ li }}</p>
   </div>
 </template>
 <script>
@@ -37,7 +39,8 @@ export default {
     ...mapState({
       // appName: state => state.appName,
       userName: state => state.user.userName,
-      appVersion: state => state.appVersion
+      appVersion: state => state.appVersion,
+      todoList: state => state.todo ? state.todo.todoList : []
     }),
     // 还可以添加模块名称
     ...mapGetters([
@@ -102,6 +105,20 @@ export default {
       // this.updateAppName('other param')
       // or the same effect
       this.$store.dispatch('updateAppName', 'actual param')
+    },
+    registerModule () {
+      // 注册模块
+      this.$store.registerModule('todo', {
+        state: {
+          todoList:['use vue', 'use react']
+        }
+      })
+      // 给一个模块注册子模块
+      // this.$store.registerModule(['user', 'todo'], {
+      //   state: {
+      //     todoList:['use vue', 'use react']
+      //   }
+      // })
     }
   }
 }
