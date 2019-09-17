@@ -1,7 +1,9 @@
 <template>
   <div>
-    <!-- <a-input v-model='inputValue' /> -->
-    <a-input :value='inputValue' @input='handleInput' />
+    <!-- 全局数据双向绑定：1. v-mode 2. 绑定事件  -->
+    <a-input v-model='stateValue' />
+    <span>: {{ stateValue }}</span>
+    <!-- <a-input :value='inputValue' @input='handleInput' /> -->
     <p>{{ inputValue }} -> lasteLettle is {{ inputValueLastLetter }}</p>
     <!-- <p>{{ inputValue }}</p> -->
     <!-- <a-show :content='inputValue' /> -->
@@ -42,6 +44,14 @@ export default {
       appVersion: state => state.appVersion,
       todoList: state => state.todo ? state.todo.todoList : []
     }),
+    stateValue: {
+      get () {
+        return this.$store.state.stateValue
+      },
+      set (val) {
+        this.SET_STATE_VALUE(val)
+      }
+    },
     // 还可以添加模块名称
     ...mapGetters([
       'appWithVersion',
@@ -72,7 +82,8 @@ export default {
   methods: {
     ...mapMutations([
       'SET_APP_VERSION',
-      'SET_USER_NAME'
+      'SET_USER_NAME',
+      'SET_STATE_VALUE'
     ]),
     ...mapActions([
       'updateAppName'
@@ -102,9 +113,12 @@ export default {
 
     },
     handleChangeUserName () {
+      // 严格模式下报错
+      this.$store.state.user.userName = 'haha'
+
       // this.updateAppName('other param')
       // or the same effect
-      this.$store.dispatch('updateAppName', 'actual param')
+      // this.$store.dispatch('updateAppName', 'actual param')
     },
     registerModule () {
       // 注册模块

@@ -10,6 +10,9 @@ const mutations = {
     vue.set(state, 'appVersion', newVal)
     // vue 响应式视图，不会更新视图
     // state.appVersion = newVal
+  },
+  SET_STATE_VALUE( state, newVal) {
+    state.stateValue = newVal
   }
 }
 export default mutations
