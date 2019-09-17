@@ -1,4 +1,4 @@
 const state = {
-  appName: 'superadmin'
+  appName: 'vue-app'
 }
 export default state

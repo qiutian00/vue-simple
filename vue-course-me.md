@@ -58,8 +58,8 @@ other:
 
 ### 状态管理2 Vuex  ** import **
 
-基础-state&getter
-基础-mutation&action&module
+基础一-state&getter
+基础二-mutation&action&module
 
 ### Vuex 中进阶
 

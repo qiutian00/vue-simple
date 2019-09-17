@@ -6,7 +6,9 @@
     <!-- <p>{{ inputValue }}</p> -->
     <!-- <a-show :content='inputValue' /> -->
     <p>appName:{{ appName }},appWithVersion: {{ appWithVersion }}</p>
-    <p>userName:{{ userName }}, firstLetter: {{ firstLetter }}</p>
+    <!-- <p>userName:{{ userName }}, firstLetter: {{ firstLetter }}</p> -->
+    <button @click='handleChangeAppName'>update</button>
+    <p><span>{{ appVersion }}</span> <span>{{ userName }}</span></p>
   </div>
 </template>
 <script>
@@ -15,6 +17,7 @@ import AInput from '_c/AInput'
 import AShow from '_c/AShow'
 import { mapState } from 'vuex';
 import { mapGetters } from 'vuex';
+import { mapMutations } from 'vuex';
 
 // import { createNamespacedHelpers } from 'vuex';
 // const { mapGetters } = createNamespacedHelpers('user')
@@ -30,8 +33,9 @@ export default {
     //   'appName'
     // ]),
     ...mapState({
-      appName: state => state.appName,
-      userName: state => state.user.userName
+      // appName: state => state.appName,
+      userName: state => state.user.userName,
+      appVersion: state => state.appVersion
     }),
     // 还可以添加模块名称
     ...mapGetters([
@@ -43,9 +47,9 @@ export default {
     //   return this.userName.substr(0, 1)
     // },
 
-    // appName () {
-    //   return this.$store.state.appName
-    // },
+    appName () {
+      return this.$store.state.appName
+    },
     // userName () {
     //   return this.$store.state.user.userName
     // },
@@ -61,8 +65,32 @@ export default {
     AShow
   },
   methods: {
+    ...mapMutations([
+      'SET_APP_VERSION',
+      'SET_USER_NAME'
+    ]),
     handleInput (value) {
       this.inputValue = value
+    },
+    handleChangeAppName () {
+      // the error not has set method
+      // this.appName = 'new appName'
+
+      // this.$store.commit('SET_APP_NAME', {
+      //   appName: newAppName
+      // })
+
+      // 或者
+
+      // this.$store.commit({
+      //   type: 'SET_APP_NAME',
+      //   appName: 'newAppName2'
+      // })
+      // this.$store.commit('SET_APP_VERSION', 'v2.2.2.0')
+
+      // 使用mutations
+      this.SET_APP_VERSION('v2.2.99.0')
+      this.SET_USER_NAME('李叶子')
     }
   }
 }
