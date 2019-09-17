@@ -7,8 +7,9 @@
     <!-- <a-show :content='inputValue' /> -->
     <p>appName:{{ appName }},appWithVersion: {{ appWithVersion }}</p>
     <!-- <p>userName:{{ userName }}, firstLetter: {{ firstLetter }}</p> -->
-    <button @click='handleChangeAppName'>update</button>
+    <button @click='handleChangeAppName'>修改appName</button>
     <p><span>{{ appVersion }}</span> <span>{{ userName }}</span></p>
+    <button @click='handleChangeUserName'>修改userName</button>
   </div>
 </template>
 <script>
@@ -16,8 +17,9 @@
 import AInput from '_c/AInput'
 import AShow from '_c/AShow'
 import { mapState } from 'vuex';
-import { mapGetters } from 'vuex';
-import { mapMutations } from 'vuex';
+import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 
 // import { createNamespacedHelpers } from 'vuex';
 // const { mapGetters } = createNamespacedHelpers('user')
@@ -69,6 +71,9 @@ export default {
       'SET_APP_VERSION',
       'SET_USER_NAME'
     ]),
+    ...mapActions([
+      'updateAppName'
+    ]),
     handleInput (value) {
       this.inputValue = value
     },
@@ -91,6 +96,12 @@ export default {
       // 使用mutations
       this.SET_APP_VERSION('v2.2.99.0')
       this.SET_USER_NAME('李叶子')
+
+    },
+    handleChangeUserName () {
+      // this.updateAppName('other param')
+      // or the same effect
+      this.$store.dispatch('updateAppName', 'actual param')
     }
   }
 }

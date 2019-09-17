@@ -59,7 +59,7 @@ other:
 ### 状态管理2 Vuex  ** import **
 
 基础一-state&getter
-基础二-mutation&action&module
+基础二-mutation & action(异步请求接口) & module
 
 ### Vuex 中进阶
 
