@@ -15,11 +15,11 @@ export default {
       this.message = mes
     })
   },
-  mounted () {
-    this.$on('on-click', (mes) => {
-      console.log(mes)
-    })
-  }
+  // mounted () {
+  //   this.$on('on-click', (mes) => {
+  //     console.log(mes)
+  //   })
+  // }
 }
 </script>
 
