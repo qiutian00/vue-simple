@@ -18,4 +18,17 @@ export default [
     path: '/tet',
     name: 'test'
   },
+  {
+    path: '/store',
+    component: () => import('@/views/store.vue')
+  },
+  {
+    path: '/named_view',
+    name: 'named_view',
+    components: {
+      default: () => import('@/views/child.vue'),
+      email: () => import('@/views/email.vue'),
+      tel: () => import('@/views/tel.vue')
+    }
+  },
 ]

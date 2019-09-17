@@ -4,9 +4,25 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <!-- 命名视图 -->
+    <transition-group :name="routerTransition">
+      <router-view key="default"/>
+      <router-view key="email" name="email"/>
+      <router-view key="tel" name="tel"/>
+    </transition-group>
+    <!-- <router-view /> -->
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      routerTransition: ''
+    }
+  }
+}
+</script>
 
 <style lang="less">
 #app {
