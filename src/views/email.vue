@@ -10,6 +10,7 @@ export default {
       this.$bus.$emit('on-click', 'hello')
     }
   },
+  // 生命周期中函数
   mounted () {
     console.log(this.$bus)
   }
