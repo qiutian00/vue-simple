@@ -77,32 +77,41 @@ Vue.prototype.$bus = Bus
 //   }
 // }).$mount('#app')
 
-const handleClick = event => {
-  console.log(event)
-  event.stopPropagation()
-}
 
-let list = [{name: 'admin'}, {name: 'qiutian'}]
-const getLiEleArr = (h) => {
-  return list.map((item, index) => h('li', {
-    on: {
-      'click': handleClick
-    },
-    key: `list_item${index}`
-  }, item.name))
-}
+// const handleClick = event => {
+//   console.log(event)
+//   event.stopPropagation()
+// }
+// let list = [{name: 'admin'}, {name: 'qiutian'}]
+// const getLiEleArr = (h) => {
+//   return list.map((item, index) => h('li', {
+//     on: {
+//       'click': handleClick
+//     },
+//     key: `list_item${index}`
+//   }, item.name))
+// }
+// new Vue({
+//   router,
+//   store,
+//   render: h => {
+//     return h('div', [
+//       h('ul', {
+//         on: {
+//           'click': handleClick
+//         }
+//       }),
+//       getLiEleArr(h)
+//     ])
+//   }
+// }).$mount('#app')
 
+
+// 函数式组件的使用
 new Vue({
   router,
   store,
-  render: h => {
-    return h('div', [
-      h('ul', {
-        on: {
-          'click': handleClick
-        }
-      }),
-      getLiEleArr(h)
-    ])
-  }
+  render: h => h(App)
 }).$mount('#app')
+
+
