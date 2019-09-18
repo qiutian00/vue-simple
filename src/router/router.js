@@ -31,4 +31,9 @@ export default [
       tel: () => import('@/views/tel.vue')
     }
   },
+  {
+    path: '/count-to',
+    name: 'count_to',
+    component: () => import('@/views/count-to.vue')
+  },
 ]
