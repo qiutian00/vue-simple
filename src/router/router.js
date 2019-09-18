@@ -36,4 +36,9 @@ export default [
     name: 'count_to',
     component: () => import('@/views/count-to.vue')
   },
+  {
+    path: '/render-page',
+    name: 'render-page',
+    component: () => import('@/views/render-page.vue')
+  },
 ]
